@@ -11,22 +11,36 @@ public class MusicStyle {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private final String name;
+    private String name;
+    private int voteCount;
+
     
     public MusicStyle() {
-        this.name = "";
+        //this.name = "";
     }
     
     public MusicStyle(String name) {
-        this.name = name;
+        this.name = name;this.voteCount = 0;
     }
 
     public long getId() {
         return id;
     }
+    public void setId(Long id) {
+        this.id = id;
+    }
     
     public String getName() {
         return name;
+    }public void setName(String name) {
+        this.name = name;
+    }
+  public int getVoteCount() {
+        return voteCount;
+    }
+
+    public void setVoteCount(int voteCount) {
+        this.voteCount = voteCount;
     }
 
 
@@ -35,3 +49,4 @@ public class MusicStyle {
         return "MusicStyle{" + "id=" + id + ", name=" + name + '}';
     }
 }
+
