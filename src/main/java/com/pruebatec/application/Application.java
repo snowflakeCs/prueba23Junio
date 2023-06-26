@@ -7,7 +7,6 @@ import java.util.stream.Stream;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 //populate the database
 @SpringBootApplication
 public class Application {
@@ -16,7 +15,7 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    @Bean
+   /* @Bean
     CommandLineRunner init(UserRepository userRepository) {
         return args -> {
             Stream.of("John", "Julie", "Jennifer", "Helen", "Rachel").forEach(name -> {
@@ -25,5 +24,5 @@ public class Application {
             });
             userRepository.findAll().forEach(System.out::println);
         };
-    }
+    }*/
 }

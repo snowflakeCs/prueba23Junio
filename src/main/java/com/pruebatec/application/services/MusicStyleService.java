@@ -1,5 +1,4 @@
 package com.pruebatec.application.services;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pruebatec.application.entities.MusicStyle;
@@ -12,7 +11,6 @@ public class MusicStyleService {
 
     private final MusicStyleRepository musicStyleRepository;
 
-    @Autowired
     public MusicStyleService(MusicStyleRepository musicStyleRepository) {
         this.musicStyleRepository = musicStyleRepository;
     }
@@ -21,7 +19,7 @@ public class MusicStyleService {
         return (List<MusicStyle>) musicStyleRepository.findAll();
     }
 
-    public MusicStyle getMusicStyleById(Long id) {
+    public MusicStyle getMusicStyleById(Integer id) {
         return musicStyleRepository.findById(id).orElse(null);
     }
 

@@ -1,7 +1,6 @@
 package com.pruebatec.application.controllers;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,12 +10,11 @@ import com.pruebatec.application.services.MusicStyleService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/musicstyles")
+@RequestMapping("/api/music")
 public class MusicStyleController {
 
     private final MusicStyleService musicStyleService;
 
-    @Autowired
     public MusicStyleController(MusicStyleService musicStyleService) {
         this.musicStyleService = musicStyleService;
     }
@@ -28,7 +26,7 @@ public class MusicStyleController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<MusicStyle> getMusicStyleById(@PathVariable("id") Long id) {
+    public ResponseEntity<MusicStyle> getMusicStyleById(@PathVariable("id") Integer id) {
         MusicStyle musicStyle = musicStyleService.getMusicStyleById(id);
         if (musicStyle == null) {
             return ResponseEntity.notFound().build();

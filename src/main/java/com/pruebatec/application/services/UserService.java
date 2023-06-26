@@ -18,7 +18,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User getUserById(Long id) throws NotFoundException {
+    public User getUserById(Integer id) throws NotFoundException {
         return userRepository.findById(id)
                 .orElseThrow(()-> new NotFoundException());
     }
@@ -28,12 +28,12 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User updateUser(Long id, User user) {
+    public User updateUser(Integer id, User user) {
         // Perform validation, retrieve existing user by id, update fields, and save to repository
         return userRepository.save(user);
     }
 
-    public void deleteUser(Long id) {
+    public void deleteUser(Integer id) {
         // Delete user from repository by id
         userRepository.deleteById(id);
     }

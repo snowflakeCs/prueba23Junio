@@ -26,26 +26,6 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:4200")
 //quitar sinoesto de abajo el mapping
 @RequestMapping("/api/users")
-/* 
-public class UserController {
-
-    private final UserRepository userRepository;
-
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
-    @GetMapping("/users")
-    public List<User> getUsers() {
-        return (List<User>) userRepository.findAll();
-    }
-
-    @PostMapping("/users")
-    void addUser(@RequestBody User user) {
-        userRepository.save(user);
-    }
-}*/
-
 
 public class UserController {
     private final UserService userService;
@@ -60,7 +40,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable Long id) throws NotFoundException {
+    public User getUserById(@PathVariable Integer id) throws NotFoundException {
         return userService.getUserById(id);
     }
 
@@ -70,12 +50,12 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User user) {
+    public User updateUser(@PathVariable Integer id, @RequestBody User user) {
         return userService.updateUser(id, user);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable Long id) {
+    public void deleteUser(@PathVariable Integer id) {
         userService.deleteUser(id);
     }
 }

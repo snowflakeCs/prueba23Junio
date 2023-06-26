@@ -1,40 +1,47 @@
 package com.pruebatec.application.entities;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "votes")
 public class VoteCount {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    @ManyToOne
-    @JoinColumn(name = "music_style_id")
-    private MusicStyle musicStyle;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    private int voteCount;
-    
+    @Column(name = "music_style_id")
+    private Integer musicStyle;
+
     public VoteCount() {
-        //this.name = "";
-    }
-    
-    public VoteCount(String name, String email) {
-        //this.name = name;
     }
 
-    public long getId() {
+    public VoteCount(Integer musicStyle) {
+        this.musicStyle = musicStyle;
+    }
+
+    // Getters and setters
+
+    public Integer getId() {
         return id;
     }
-    
-   
-  
-    
-    @Override
-    public String toString() {
-        return "VoteCount{" + "id=" + id +'}';
+
+    public void setId(Integer id) {
+        this.id = id;
     }
+
+    public Integer getMusicStyle() {
+        return musicStyle;
+    }
+
+    public void setMusicStyle(Integer musicStyle) {
+        this.musicStyle = musicStyle;
+    }
+
+
 }
+

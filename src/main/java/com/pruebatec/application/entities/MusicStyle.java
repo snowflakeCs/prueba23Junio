@@ -4,13 +4,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "music_style")
 public class MusicStyle {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Integer id;
     private String name;
     private int voteCount;
 
@@ -26,7 +28,7 @@ public class MusicStyle {
     public long getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     
@@ -46,7 +48,7 @@ public class MusicStyle {
 
     @Override
     public String toString() {
-        return "MusicStyle{" + "id=" + id + ", name=" + name + '}';
+        return "MusicStyle{" + "id=" + id + ", name=" + name + ", voteCount=" + voteCount + '}';
     }
 }
 
