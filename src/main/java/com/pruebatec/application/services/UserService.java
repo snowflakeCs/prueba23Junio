@@ -1,5 +1,8 @@
 package com.pruebatec.application.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +18,10 @@ public class UserService {
     }
 
     public Iterable<User> getAllUsers() {
-        return userRepository.findAll();
+        //return userRepository.findAll();
+        List<User> users = new ArrayList<User>();  
+            userRepository.findAll().forEach(student -> users.add(student));  
+            return users;  
     }
 
     public User getUserById(Integer id) throws NotFoundException {
