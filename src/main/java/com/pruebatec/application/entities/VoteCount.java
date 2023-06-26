@@ -12,6 +12,7 @@ public class VoteCount {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Integer id;
 
     @Column(name = "music_style_id")

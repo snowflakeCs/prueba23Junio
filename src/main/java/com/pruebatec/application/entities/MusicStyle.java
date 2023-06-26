@@ -1,5 +1,6 @@
 package com.pruebatec.application.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,8 +13,11 @@ public class MusicStyle {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     private Integer id;
+    @Column
     private String name;
+    @Column
     private int voteCount;
 
     
